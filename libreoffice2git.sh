@@ -47,7 +47,7 @@ done
 
 #Specify Usage
 function help {
-  echo "USAGE: $PROG_NAME [-hpz] -i <file>"
+  echo "USAGE: $PROG_NAME [-h] -i <file>"
   echo ""
   echo "  where:
     -i  --input         Input file (.odt format)
@@ -91,8 +91,10 @@ cd $(dirname "$ARG_FILENAME")
 FILE_BASENAME=$(basename "$ARG_FILENAME")
 GIT_DIR="$FILE_BASENAME.git"
 
-#Make the directory if it doesn't exist
+#Recreate the Git Directory
+# - We need to remove and allow commands to add again so that removed pictures, objects, etc. in new revisions are removed from GIT
 echo "Progress:  Creating Git Directory for ......... $FILE_BASENAME"
+rm -fr $GIT_DIR
 mkdir -p $GIT_DIR
 
 #Unzip the odt file and change to that directory
