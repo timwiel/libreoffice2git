@@ -49,6 +49,14 @@ Flatten the .odt into xml, pictures with markdown and plaintext from resume.odt
 ./libreoffice2git.sh --pictures --unzip --input resume.odt
 ```
 
+## Git Pre-Commit Hook
+
+To automate the git management of the office files you can install a git pre-commit hook that builds the files on already tracked office files.
+
+Just copy the `githook-pre-commit` to `.git/hooks/pre-commit`
+
+The libreoffice2git.sh will need to be run on each new .odt file before the hook will track the changes automatically
+
 ## Based on
 
 This script is based on the powershell script for Microsoft Word .docx files by Tomáš Hübelbauer found at https://github.com/TomasHubelbauer/modern-office-git-diff
