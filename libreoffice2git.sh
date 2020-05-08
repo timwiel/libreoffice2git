@@ -47,7 +47,7 @@ done
 
 #Specify Usage
 function help {
-  echo "USAGE: $PROG_NAME [-h] -i <file>"
+  echo "USAGE: $PROG_NAME [-hpz] -i <file>"
   echo ""
   echo "  where:
     -i  --input         Input file (.odt format)
@@ -99,7 +99,7 @@ mkdir -p $GIT_DIR
 
 #Unzip the odt file and change to that directory
 if [ $ARG_PICTURES == 1 ]; then
-  echo "Progress:  Extractig Pictures ................. $FILE_BASENAME"
+  echo "Progress:  Extracting Pictures ................ $FILE_BASENAME"
   unzip -qo $FILE_BASENAME 'Pictures/*' -d $GIT_DIR
 fi
 
